@@ -1,4 +1,6 @@
 import urllib
+import re 
+
 
 # String variable named url to url that leads to access log that needs to be retrieved 
 url = 'https://s3.amazonaws.com/tcmg476/http_access_log'
@@ -22,7 +24,7 @@ with open(file, 'r') as f:
 print"Total number of requests:",  count
 
 
-
-
-
-
+# Parsing function that splits by date 
+f = open(file, 'r')
+for line in f: 
+	print line.split(' ]')[0].split('[')[1].split(':')[0]
